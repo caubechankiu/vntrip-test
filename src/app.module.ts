@@ -4,7 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { TypeOrmRepositoriesModule } from './typeorm/typeorm.module';
 
 // Controller Modules
-import { ProductModule } from './components/products/product.module';
+import { ProductModule } from './components/product/product.module';
 
 // Config
 import config from './config';
