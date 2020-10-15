@@ -9,7 +9,7 @@ export class UpdateProductBody {
   product_name: string;
 
   @IsNumber()
-  @Min(0)
+  @Min(1)
   @ApiProperty({ type: 'number', example: 10000, required: true })
   price: number;
 }

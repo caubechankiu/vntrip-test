@@ -19,7 +19,7 @@ export class ProductController {
     private readonly commandBus: CommandBus,
   ) { }
 
-  // Query
+  /* #region  Query */
   @ApiPagination({ search: true })
   @Get()
   async getListProduct(@Pagination() pagination: PaginationQuery) {
@@ -31,15 +31,18 @@ export class ProductController {
     const { productId } = param;
     return this.queryBus.execute(new GetOneProduct(productId));
   }
+  /* #endregion */
 
+  /* #region  Command */
   @Post()
   async createProduct(@Body() body: CreateProductBody) {
-    return this.commandBus.execute(new CreateProduct(body));
+    await this.commandBus.execute(new CreateProduct(body));
   }
 
   @Put(':productId')
   async updateProduct(@Param() param: ProductParam, @Body() body: UpdateProductBody) {
     const { productId } = param;
-    return this.commandBus.execute(new UpdateProduct(productId, body));
+    await this.commandBus.execute(new UpdateProduct(productId, body));
   }
+  /* #endregion */
 }
