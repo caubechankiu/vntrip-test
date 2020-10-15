@@ -1,0 +1,79 @@
+{
+  "name": "deal-api",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "typeorm": "./node_modules/.bin/ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js --config src/ormconfig.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "start": "nest start",
+    "dev": "nest start --watch",
+    "start:dev": "cp .env.dev .env && node dist/main.js",
+    "start:prod": "cp .env.prod .env && node dist/main.js",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "typeorm:create": "yarn typeorm migration:create",
+    "typeorm:generate": "yarn typeorm migration:generate -n Init",
+    "typeorm:run": "yarn typeorm migration:run"
+  },
+  "dependencies": {
+    "@nestjs/common": "^7.4.4",
+    "@nestjs/core": "^7.4.4",
+    "@nestjs/cqrs": "^7.0.1",
+    "@nestjs/jwt": "^7.1.0",
+    "@nestjs/passport": "^7.1.0",
+    "@nestjs/platform-express": "^7.4.4",
+    "@nestjs/swagger": "^4.6.1",
+    "@nestjs/typeorm": "^7.1.4",
+    "class-transformer": "^0.3.1",
+    "class-validator": "^0.12.2",
+    "express": "^4.17.1",
+    "lodash": "^4.17.20",
+    "moment": "^2.29.0",
+    "passport": "^0.4.1",
+    "passport-jwt": "~4.0.0",
+    "pg": "^8.4.1",
+    "redis": "^3.0.2",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^6.6.3",
+    "swagger-ui-express": "^4.1.4",
+    "typeorm": "^0.2.26"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^7.5.1",
+    "@types/lodash": "^4.14.161",
+    "@types/node": "^12.12.14",
+    "@types/passport-jwt": "^3.0.3",
+    "husky": "^4.2.5",
+    "ts-loader": "^6.2.1",
+    "ts-node": "^8.5.4",
+    "tsconfig-paths": "^3.9.0",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.2"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx tslint 'src/**/*.ts'"
+    }
+  }
+}
