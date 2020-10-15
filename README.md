@@ -11,6 +11,8 @@ VnTrip Test Project
 ## Installation
 
 ```bash
+$ git clone https://github.com/caubechankiu/vntrip-test.git
+$ cd vntrip-test
 $ yarn
 ```
 
