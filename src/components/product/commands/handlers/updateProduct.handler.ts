@@ -12,8 +12,8 @@ export class UpdateProductHandler
 
   async execute(c: UpdateProduct) {
     const { productId, body } = c;
-
     const { product_name, price } = body;
+
     await this.productRepo.update({ id: productId }, { product_name, price });
   }
 }

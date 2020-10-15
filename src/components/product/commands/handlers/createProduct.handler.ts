@@ -13,8 +13,8 @@ export class CreateProductHandler
 
   async execute(c: CreateProduct) {
     const { body } = c;
-
     const { product_name, product_code, price } = body;
+
     try {
       await this.productRepo.createQueryBuilder().insert()
         .values({ product_name, product_code, price })
