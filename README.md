@@ -20,7 +20,7 @@ $ yarn
 $ cp .env.dev .env
 $ yarn dev
 ```
-Application Swagger UI is running on: <a href="https://angular.io" target="blank">http://localhost:3000/swagger</a>
+Application Swagger UI is running on: <a href="http://localhost:3000/swagger" target="blank">http://localhost:3000/swagger</a>
 
 ## License
 
